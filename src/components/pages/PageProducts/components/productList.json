@@ -16,14 +16,6 @@
     "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71FnArf2ZbL.jpg"
   },
   {
-    "count": 7,
-    "description": "The Power of Habit: Why We Do What We Do in Life and Business",
-    "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a3",
-    "price": 23,
-    "title": "The Power of Habit",
-    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81oc6I4sn-L.jpg"
-  },
-  {
     "count": 12,
     "description": "The Miracle Morning: The Not-So-Obvious Secret Guaranteed to Transform Your Life (Before 8AM)",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a1",
@@ -62,5 +54,13 @@
     "price": 15,
     "title": "The Power of Positive Leadership",
     "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/51zTXki+YEL.jpg"
+  },
+  {
+    "count": 7,
+    "description": "The Power of Habit: Why We Do What We Do in Life and Business",
+    "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a3",
+    "price": 23,
+    "title": "The Power of Habit",
+    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81oc6I4sn-L.jpg"
   }
 ]
