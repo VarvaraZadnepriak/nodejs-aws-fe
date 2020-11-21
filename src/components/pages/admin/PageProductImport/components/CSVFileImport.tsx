@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Typography from "@material-ui/core/Typography";
 import axios from 'axios';
+import mimeTypes from 'mime-types';
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -31,6 +32,14 @@ export default function CSVFileImport({url, title}: CSVFileImportProps) {
   };
 
   const uploadFile = async (e: any) => {
+      // Define correct content-type - Windows compatible
+      const contentType = mimeTypes.lookup(file.name);
+
+      if (contentType !== 'text/csv') {
+        alert('Неверный тип файла. Пожалуйста, выберите *.csv файл!');
+        return;
+      }
+
       // Get the presigned URL
       const response = await axios({
         method: 'GET',
@@ -40,10 +49,16 @@ export default function CSVFileImport({url, title}: CSVFileImportProps) {
         }
       })
       console.log('File to upload: ', file.name)
+
       console.log('Uploading to: ', response.data)
       const result = await fetch(response.data, {
         method: 'PUT',
-        body: file
+        body: file,
+        ...(contentType && {
+          headers: {
+            'Content-Type': contentType
+          }
+        })
       })
       console.log('Result: ', result)
       setFile('');
