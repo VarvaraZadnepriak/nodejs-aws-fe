@@ -8,14 +8,24 @@ import * as serviceWorker from './serviceWorker';
 import CssBaseline from "@material-ui/core/CssBaseline";
 import axios from 'axios';
 
+enum StatusCode {
+  BadRequest = 400,
+  Unauthorized = 401,
+  Forbidden = 403,
+}
+
 axios.interceptors.response.use(
   response => {
     return response;
   },
   function(error) {
-    if (error.response.status === 400) {
+    if (error.response.status === StatusCode.BadRequest) {
       alert(error.response.data?.data);
     }
+    if (error.response.status === StatusCode.Unauthorized || error.response.status === StatusCode.Forbidden) {
+      alert(error.response.data?.message);
+    }
+
     return Promise.reject(error.response);
   }
 );
